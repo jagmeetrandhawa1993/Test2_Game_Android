@@ -22,8 +22,6 @@ public class GameBoard extends View {
     private Paint score2 = new Paint();
     int ballX = 450;
     int ballY ;
-    int ballSpeed = -5;
-    int gameState = 0;
     private Handler h;
     private final int FRAME_RATE = 30;
     private int yVelocity = 10;
@@ -63,13 +61,6 @@ public class GameBoard extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        // canvasHeight = canvas.getHeight();
-        //   canvasWidth = canvas.getWidth();
-        // ballX =  canvasWidth/2 - ball.getWidth()/2;
-        //   ballY = canvasHeight/2 - ball.getHeight();
-
-
-        // canvas.drawBitmap(background, 0, 0, null);
         canvas.drawBitmap(player1, 0, 700, null);
         canvas.drawBitmap(player2, 800, 700, null);
 
@@ -85,12 +76,8 @@ public class GameBoard extends View {
             }
         }
 
-
-
         canvas.drawBitmap(ball, ballX, ballY, null);
         h.postDelayed(r, FRAME_RATE);
-
-
 
         canvas.drawText("PlayerA:", 20, 60, score1);
         canvas.drawText("PlayerB:", 700, 60, score2);
